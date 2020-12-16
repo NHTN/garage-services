@@ -1,3 +1,4 @@
+import { HomeAuthComponent } from './home-auth/home-auth.component';
 import { ClientsListComponent } from './clients-list/clients-list.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './modules/home/page/home/home.component';
@@ -81,6 +82,7 @@ const routes: Routes = [
     VerifyEmailComponent,
     HomeComponent,
     AdminComponent,
+    HomeAuthComponent
   ],
   providers: [
     SocialLoginConfig,

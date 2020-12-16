@@ -66,7 +66,7 @@ export class AuthService {
     return this.http.post<LoginWithGG>(url, loginGGContext).pipe();
   }
 
-  register = async (
+  public register = async (
     signupContext: SignUpInternalContextInterface
   ): Promise<Observable<object>> => {
     const url = `${this.apiUrl}/auth/register/internal`;

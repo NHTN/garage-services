@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import jwt_decode from 'jwt-decode';
 import { UseExistingWebDriver } from 'protractor/built/driverProviders';
 
-interface TokenDecoded {
+export interface TokenDecoded {
   id: string;
   role: string;
   iat: number;
@@ -31,7 +31,6 @@ export class AdminComponent implements OnInit {
       this.router.navigate(['/']);
     }
   }
-
 
   onProfileClick(): void {
     this.router.navigate(['/admin/profile'])
