@@ -19,7 +19,8 @@ export class AdminService {
     return this.http.get(
       url,
       {
-        observe: 'response'
+        withCredentials: true,
+        observe: 'response' as 'response'
       }
     ).pipe(
       catchError((error: HttpErrorResponse) => {

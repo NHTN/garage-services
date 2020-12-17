@@ -1,3 +1,4 @@
+import { ProfileComponent } from './modules/profile/page/profile/profile.component';
 import { AdminComponent } from './admin/admin.component';
 import { NgModule } from '@angular/core';
 import { AppMaterialModule } from './material.module';
@@ -20,9 +21,13 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'admin', component: AdminComponent
+    path: 'admin', component: AdminComponent,
+    children: [
+      {
+        path: 'profile', component: ProfileComponent
+      }
+    ]
   }
-
 ];
 
 @NgModule({

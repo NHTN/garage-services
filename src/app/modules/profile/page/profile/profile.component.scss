@@ -1,93 +1,35 @@
 .profile-module--Profile {
-  height: 600px;
-  position: relative;
-  padding: 60px;
+  height: 100%;
+  width: 100%;
+  display: flex;
 
-  .contain-module--Container {
-    width: 100%;
+  .form-module--profile {
+    display: flex;
     height: 100%;
-    background-color: blue;
+    width: 100%;
+    flex-direction: column;
+    padding: 10px 30px 20px 30px;
 
-    .profile-module--container {
-      width: 100%;
-      height: 100%;
+    .form-module--item {
+      flex: 1;
       display: flex;
-      background-color: beige;
+      flex-direction: row;
 
-      .profile-module--options {
-        flex-grow: 1;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        max-width: 300px;
-        background-color: bisque;
-
-        .options-module--title {
-          align-items: center;
-          margin-top: 30px;
-          flex-grow: 1;
-          align-items: center;
-          background-color: gray;
-          p {
-            font-size: 1.3em;
-            font-weight: bold;
-            font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-          }
-        }
+      mat-form-field {
+        width: 100%;
       }
+    }
 
-      .profile-module--detail {
-        flex-grow: 2;
-        display: flex;
-        flex-direction: column;
+    .form-module--update-button {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-        .detail-module--profile {
-          flex-grow: 1;
-          padding: 10px;
-          .detail-profile--container {
-            height: 100%;
-            width: 100%;
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            .profile-module--avatar {
-              flex-grow: 1;
-              min-width: 80px;
-              margin-left: 30px;
-
-              img {
-                height: 80px;
-                width: 80px;
-                max-height: 100%;
-                max-width: 100%;
-                border-radius: 6em;
-              }
-            }
-
-            .profile-module--detail {
-              flex-grow: 5;
-              font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-              height: fit-content;
-              h2 {
-              }
-              p {
-              }
-            }
-          }
-        }
-
-        .detail-module--form {
-          flex-grow: 4;
-          background-color: pink;
-        }
-
-        .detail-module--update {
-          flex-grow: 1;
-        }
+      button {
+        color: white;
+        width: 40%;
+        background-color: #ef476f;
       }
     }
   }

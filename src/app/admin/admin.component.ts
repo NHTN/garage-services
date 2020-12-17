@@ -23,20 +23,28 @@ export class AdminComponent implements OnInit {
     private router: Router
   ) { }
 
+  redirectTo(uri: string) {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
+      this.router.navigate([uri]));
+  }
+
   ngOnInit(): void {
     const token = localStorage.getItem('token') as string;
+    if (!token) {
+      this.redirectTo('/');
+    }
     const user = jwt_decode(token) as TokenDecoded;
-    console.log(user.role);
+
     if (user.role != 'admin') {
-      this.router.navigate(['/']);
+      this.redirectTo('/');
     }
   }
 
   onProfileClick(): void {
-    this.router.navigate(['/admin/profile'])
+    this.redirectTo('/admin/profile')
   }
 
   onClientsClick(): void {
-    this.router.navigate(['/admin/clients'])
+    this.redirectTo('/admin/clients')
   }
 }

@@ -1,11 +1,10 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, of } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import User from "src/app/data/interfaces/user.interface";
 import { environment } from "src/environments/environment";
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { Router } from "@angular/router";
-import { ErrorStateMatcher } from "@angular/material/core";
 import { throwError } from "rxjs";
 
 export interface LoginContextInterface {
@@ -42,6 +41,10 @@ export class AuthService {
     this.user = this.userSubject.asObservable();
   }
 
+  public userEmitChange(usr: User) {
+    this.userSubject.next(usr);
+  }
+
   public get userValue(): LoginContextInterface {
     return this.userSubject.value;
   }
@@ -52,7 +55,7 @@ export class AuthService {
     const url = `${environment.apiUrl}/auth/login/internal`;
 
     return this.http.post<LoginContextInterface>(url, loginContext, {
-      observe: 'response'
+      observe: 'response' as 'response'
     })
       .pipe(
       );
